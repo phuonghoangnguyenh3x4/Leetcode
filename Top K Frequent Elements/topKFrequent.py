@@ -7,10 +7,7 @@ class Solution:
             bucket[cnt - 1].append(n)
         ans = []
         for i in range(len(nums) - 1, -1, -1):
-            j = 0
-            while bucket[i] and k > 0 and j < len(bucket[i]):
-                ans.append(bucket[i][j])
-                j += 1
-                k -= 1
-        return ans
-            
+            for n in bucket[i]:
+                ans.append(n)
+                if len(ans) == k:
+                    return ans
